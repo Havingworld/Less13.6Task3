@@ -20,27 +20,21 @@ int main()
     cout << "input number in data base: ";
     for (;;) {
         cin >> nInput;
-        
+
         if (nInput == -1) {
-            for (int i = 0; i < database.size(); i++) {
+            for (int i = nCount; i < database.size(); i++) {
                 cout << database[i] << " ";
             }
-            break;
+            if (nCount != 0) {
+                for (int i = 0; i < nCount; i++) {
+                    cout << database[i] << " ";
+                }
+                break;
+            }
         }
-
-        if (nCount < 20) {
+            if (nCount == 20) nCount = 0;
             database[nCount] = nInput;
             nCount++;
-        }
-        else { database.push_back(nInput); 
-            for (int i = 0; i < database.size()-1; i++) {
-                database[i] = database[i + 1];
-            }
-            database.pop_back();
-        }
         
-
     }
-    
-
 }
